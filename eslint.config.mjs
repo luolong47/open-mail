@@ -5,8 +5,8 @@ export default defineConfig([
     ...next,
     {
         rules: {
-            "max-lines": ["warn", { max: 300, skipBlankLines: true, skipComments: true }],
-            "complexity": ["warn", { max: 20 }],
+            "max-lines": ["error", { max: 500, skipBlankLines: true, skipComments: true }],
+            "complexity": ["error", { max: 20 }],
         },
     },
 ]);
