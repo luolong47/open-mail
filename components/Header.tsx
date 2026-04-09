@@ -277,7 +277,7 @@ export function Header({ emails, onSearch, onSelectEmail }: HeaderProps) {
               </div>
             ) : (
               <div className="px-4 py-6 text-center text-[13px] text-gray-400">
-                没有找到与 "<span className="text-gray-600 font-medium">{searchText}</span>" 相关的邮件
+                没有找到与 &quot;<span className="text-gray-600 font-medium">{searchText}</span>&quot; 相关的邮件
               </div>
             )}
 
