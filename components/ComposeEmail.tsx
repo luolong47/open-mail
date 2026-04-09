@@ -106,8 +106,8 @@ export function ComposeEmail({ onClose }: ComposeEmailProps) {
           {/* Footer Sender Info */}
           <div className="px-6 py-3 border-t border-gray-100 flex items-center text-sm text-gray-500">
             <span className="mr-2">发件人:</span>
-            <span className="font-medium text-gray-900 mr-1">928496743</span>
-            <span>&lt;luolong47@qq.com&gt;</span>
+            <span className="font-medium text-gray-900">Antigravity</span>
+            <span>&lt;hello@openmail.com&gt;</span>
             <ChevronDown className="w-3 h-3 ml-1" />
           </div>
         </div>

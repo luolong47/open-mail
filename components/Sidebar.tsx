@@ -25,49 +25,55 @@ export function Sidebar({ currentFolder, onSelectFolder, onCompose }: SidebarPro
   };
 
   return (
-    <div className="w-64 bg-[#f2f4f7] h-full flex flex-col border-r border-gray-200 overflow-y-auto">
+    <div className="w-[220px] bg-[#f2f4f7] h-full flex flex-col border-r border-gray-200 flex-shrink-0">
       {/* Logo Area */}
-      <div className="p-4 flex items-center space-x-2">
+      <div className="h-[60px] px-4 flex items-center space-x-2 shrink-0">
         <div className="text-blue-600 font-bold text-2xl flex items-center">
-          <span className="text-blue-500">MO</span>
-          <span className="text-blue-600">IL</span>
+          <span className="text-blue-500">OP</span>
+          <span className="text-blue-600">EN</span>
         </div>
-        <div className="text-xs text-gray-500 mt-1">QQ邮箱<br/>mail.qq.com</div>
+        <div className="text-xs text-gray-500 mt-1">开源邮箱<br/>openmail.com</div>
       </div>
 
       {/* Compose Button */}
-      <div className="px-4 mb-4">
+      <div className="px-3 mt-2 mb-2">
         <button 
           onClick={onCompose}
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md py-2 flex items-center justify-center space-x-2 shadow-sm transition-colors"
+          className="w-full h-[35px] bg-[#0f7af5] hover:bg-[#0d6add] text-white rounded-[6px] flex items-center justify-center space-x-1.5 shadow-sm transition-colors text-[14px]"
         >
-          <FileText className="w-4 h-4" />
+          <FileText className="w-[15px] h-[15px]" />
           <span>写信</span>
         </button>
       </div>
 
       {/* Main Folders */}
       <div className="flex-1 overflow-y-auto">
-        <ul className="space-y-0.5">
+        <ul className="space-y-0.5 px-3">
           {folders.map((folder) => (
             <li key={folder.id}>
               <button
                 onClick={() => onSelectFolder(folder.id)}
                 className={clsx(
-                  "w-full flex items-center justify-between px-4 py-2 text-sm transition-colors",
+                  "w-full h-7 flex items-center justify-between pl-2.5 pr-2 rounded text-[13px] transition-colors",
                   currentFolder === folder.id 
-                    ? "bg-[#e2e6ed] text-gray-900 font-medium" 
-                    : "text-gray-700 hover:bg-[#e8ebf0]"
+                    ? "bg-[#0f7af5]/15 text-[#0f7af5] font-medium" 
+                    : "text-gray-700 hover:bg-black/5"
                 )}
               >
-                <div className="flex items-center space-x-3">
-                  <span className={currentFolder === folder.id ? "text-blue-500" : "text-gray-500"}>
+                <div className="flex items-center space-x-2">
+                  <span className={clsx(
+                    "flex items-center",
+                    currentFolder === folder.id ? "text-[#0f7af5]" : "text-gray-500"
+                  )}>
                     {renderIcon(folder.icon)}
                   </span>
                   <span>{folder.name}</span>
                 </div>
                 {folder.unread > 0 && (
-                  <span className="text-xs font-medium text-gray-500">{folder.unread}</span>
+                  <span className={clsx(
+                    "text-xs font-medium",
+                    currentFolder === folder.id ? "text-[#0f7af5]" : "text-gray-500"
+                  )}>{folder.unread}</span>
                 )}
               </button>
             </li>
@@ -88,10 +94,10 @@ export function Sidebar({ currentFolder, onSelectFolder, onCompose }: SidebarPro
           </button>
           
           {isMyFoldersOpen && (
-            <ul className="space-y-0.5 mt-1">
+            <ul className="space-y-0.5 mt-1 px-3">
               {customFolders.map((folder) => (
                 <li key={folder.id}>
-                  <button className="w-full flex items-center justify-between px-4 py-1.5 pl-10 text-sm text-gray-700 hover:bg-[#e8ebf0]">
+                  <button className="w-full h-7 flex items-center justify-between pl-[1.875rem] pr-2 rounded text-[13px] text-gray-700 hover:bg-black/5 transition-colors">
                     <div className="flex items-center space-x-2">
                       <FolderIcon className="w-4 h-4 text-gray-400" />
                       <span>{folder.name}</span>
@@ -108,13 +114,13 @@ export function Sidebar({ currentFolder, onSelectFolder, onCompose }: SidebarPro
 
         {/* Other Accounts */}
         <div className="mt-6 border-t border-gray-200 pt-2">
-          <ul className="space-y-0.5">
+          <ul className="space-y-0.5 px-3">
             {otherAccounts.map((account) => (
               <li key={account.id}>
-                <button className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-[#e8ebf0]">
-                  <div className="flex items-center space-x-3">
+                <button className="w-full h-7 flex items-center pl-2.5 pr-2 rounded text-[13px] text-gray-700 hover:bg-black/5 transition-colors">
+                  <div className="flex items-center space-x-2">
                     <Mail className="w-4 h-4 text-blue-400" />
-                    <span className="truncate w-40 text-left">{account.email}</span>
+                    <span className="truncate w-36 text-left">{account.email}</span>
                   </div>
                 </button>
               </li>

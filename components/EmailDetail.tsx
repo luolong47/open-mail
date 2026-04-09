@@ -78,7 +78,7 @@ export function EmailDetail({ email, onBack }: EmailDetailProps) {
                   <span className="text-sm text-gray-500">&lt;{email.senderEmail}&gt;</span>
                 </div>
                 <div className="text-sm text-gray-500 mt-0.5">
-                  收件人 我 &lt;luolong47@qq.com&gt;
+                  收件人 我 &lt;hello@openmail.com&gt;
                 </div>
                 {email.hasAttachment && email.attachments && (
                   <div className="flex items-center space-x-2 mt-1">
