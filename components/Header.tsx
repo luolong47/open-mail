@@ -2,6 +2,7 @@ import React from 'react';
 import { Search, Settings, ChevronDown, Check, X, Mail, Paperclip } from 'lucide-react';
 import clsx from 'clsx';
 import { Email } from '@/lib/mock-data';
+import Image from 'next/image';
 
 // 文件夹 ID 到中文名的映射
 const folderNameMap: Record<string, string> = {
@@ -364,11 +365,14 @@ export function Header({ emails, onSearch, onSelectEmail }: HeaderProps) {
       <div className="flex items-center space-x-4 ml-4">
         {/* User Profile */}
         <button className="flex items-center space-x-2 hover:bg-black/5 rounded-md px-2 py-1 transition-colors">
-          <img
+          <Image
             className="h-8 w-8 rounded-full object-cover"
             src="https://picsum.photos/seed/avatar/100/100"
             alt="User avatar"
             referrerPolicy="no-referrer"
+            width={32}
+            height={32}
+            unoptimized
           />
           <div className="flex items-center text-sm">
             <span className="font-medium text-gray-900">Antigravity</span>
